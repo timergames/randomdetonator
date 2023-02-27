@@ -25,7 +25,7 @@
             clearInterval(intervalId);
             document.body.style.backgroundColor = "orange";
             navigator.vibrate(500); // vibrate for 500 milliseconds
-            var audio = new Audio("file://desktop-4280cru/Users/User/OneDrive/explosion.mp3"); // replace with the URL or base64-encoded data URI of your explosion sound effect
+            var audio = new Audio("/explosion.mp3"); // replace with the URL or base64-encoded data URI of your explosion sound effect
             audio.play(); // play the explosion sound effect
             setTimeout(function() {
               document.body.style.backgroundColor = "black";
