@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Countdown Explosion</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-size: 5em;
+        text-align: center;
+        margin-top: 30vh;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var countdownsLeft = 10;
+      function countdown() {
+        var secondsLeft = Math.floor(Math.random() * 26) + 5;
+        document.body.innerHTML = secondsLeft;
+        var intervalId = setInterval(function() {
+          secondsLeft--;
+          document.body.innerHTML = secondsLeft;
+          if (secondsLeft == 0) {
+            clearInterval(intervalId);
+            document.body.style.backgroundColor = "orange";
+            navigator.vibrate(500); // vibrate for 500 milliseconds
+            var audio = new Audio("file://desktop-4280cru/Users/User/OneDrive/explosion.mp3"); // replace with the URL or base64-encoded data URI of your explosion sound effect
+            audio.play(); // play the explosion sound effect
+            setTimeout(function() {
+              document.body.style.backgroundColor = "black";
+              countdownsLeft--;
+              if (countdownsLeft > 0) {
+                countdown();
+              }
+            }, 4000);
+          }
+        }, 1000);
+      }
+      countdown();
+    </script>
+  </body>
+</html>
